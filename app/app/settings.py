@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'user',
+    'rest_framework',
+    'drf-spectacular',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +88,8 @@ DATABASES = {
     }
 }
 
+print( os.environ.get('DB_NAME'), 'this is me')
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -128,3 +133,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'core.User'
+REST_FRAMWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf-spectacular.openapi.AutoSchema',
+}
